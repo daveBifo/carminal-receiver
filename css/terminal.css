@@ -1,0 +1,98 @@
+/* terminal.css */
+body {
+    background-color: #000000;
+}
+
+#terminal-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    background: #0D0D0D; /* Dark background for the terminal area */
+    color: #F8F8F2; /* Light foreground color for text */
+}
+
+/* Single Layout */
+.layout-single {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+/* Split Vertical */
+.layout-split_vertical {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 4px;
+}
+
+/* Split Horizontal */
+.layout-split_horizontal {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+}
+
+/* Quad */
+.layout-quad {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+}
+
+.terminal-pane {
+    position: relative;
+    overflow: hidden;
+    background-color: #0D0D0D; /* Ensure individual panes also have dark background */
+}
+
+.env-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 4px 12px;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background for label */
+}
+
+/* Xterm.js overrides for dark theme */
+.xterm .xterm-viewport {
+    overflow-y: auto;
+}
+
+.xterm .xterm-rows {
+    background-color: #0D0D0D;
+    color: #F8F8F2;
+}
+
+.xterm .xterm-cursor-block {
+    background-color: #F8F8F2; /* Cursor color */
+    color: #0D0D0D;
+}
+
+.xterm .xterm-selection div {
+    background-color: rgba(248, 248, 242, 0.3); /* Selection background */
+}
+
+/* Example color palette for xterm.js (Dracula-like) */
+.xterm .xterm-color-0 { color: #21222C; } /* black */
+.xterm .xterm-color-1 { color: #FF5555; } /* red */
+.xterm .xterm-color-2 { color: #50FA7B; } /* green */
+.xterm .xterm-color-3 { color: #F1FA8C; } /* yellow */
+.xterm .xterm-color-4 { color: #BD93F9; } /* blue */
+.xterm .xterm-color-5 { color: #FF79C6; } /* magenta */
+.xterm .xterm-color-6 { color: #8BE9FD; } /* cyan */
+.xterm .xterm-color-7 { color: #F8F8F2; } /* white */
+
+.xterm .xterm-color-8 { color: #6272A4; } /* bright black */
+.xterm .xterm-color-9 { color: #FF6E6E; } /* bright red */
+.xterm .xterm-color-10 { color: #69FF94; } /* bright green */
+.xterm .xterm-color-11 { color: #FFFF9D; } /* bright yellow */
+.xterm .xterm-color-12 { color: #CAB6F9; } /* bright blue */
+.xterm .xterm-color-13 { color: #FF92DF; } /* bright magenta */
+.xterm .xterm-color-14 { color: #A4FFFF; } /* bright cyan */
+.xterm .xterm-color-15 { color: #FFFFFF; } /* bright white */
