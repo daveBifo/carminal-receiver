@@ -14,8 +14,13 @@ class CarminalReceiver {
     
     setupMessageListener() {
         this.context.addCustomMessageListener(NAMESPACE, (event) => {
-            const message = event.data;
-            this.handleMessage(message);
+            console.log('Received message:', event.data);
+            try {
+                const message = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+                this.handleMessage(message);
+            } catch (e) {
+                console.error('Failed to parse message:', e, event.data);
+            }
         });
     }
     
