@@ -72,14 +72,21 @@ class CarminalReceiver {
                                                    .replace(/\x1b\[[?][0-9]*[a-zA-Z]/g, '');
                     this.terminalDiv.textContent += cleanText;
 
-                    // Auto-scroll to bottom
-                    const container = document.getElementById('terminal-container');
-                    container.scrollTop = container.scrollHeight;
+                    // Keep only last 5000 chars to prevent memory issues
+                    if (this.terminalDiv.textContent.length > 5000) {
+                        this.terminalDiv.textContent = this.terminalDiv.textContent.slice(-4000);
+                    }
 
-                    // Update status
+                    // Auto-scroll to bottom - use requestAnimationFrame for reliability
+                    requestAnimationFrame(() => {
+                        const container = document.getElementById('terminal-container');
+                        container.scrollTop = container.scrollHeight;
+                    });
+
+                    // Update status (only once)
                     const status = document.getElementById('status');
-                    if (status) {
-                        status.textContent = 'Connected - Receiving terminal output';
+                    if (status && status.textContent !== 'Connected') {
+                        status.textContent = 'Connected';
                         status.style.color = '#50FA7B';
                     }
                 }
