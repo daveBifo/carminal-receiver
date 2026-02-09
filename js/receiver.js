@@ -51,6 +51,8 @@ class CarminalReceiver {
     }
     
     start() {
+        // Set default single layout so terminal panes have proper dimensions
+        document.getElementById('terminal-container').className = 'layout-single';
         this.context.start();
         console.log('Carminal Receiver started');
     }

@@ -7,8 +7,10 @@ body {
     width: 100vw;
     height: 100vh;
     display: grid;
-    background: #0D0D0D; /* Dark background for the terminal area */
-    color: #F8F8F2; /* Light foreground color for text */
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background: #0D0D0D;
+    color: #F8F8F2;
 }
 
 /* Single Layout */
