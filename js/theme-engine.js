@@ -94,7 +94,7 @@ class ThemeEngine {
             }
 
             if (Object.keys(themeToApply).length > 0) {
-                terminalEntry.term.setOption('theme', themeToApply);
+                terminalEntry.term.options.theme = themeToApply;
                 console.log(`Theme applied to session ${sessionId}`);
             } else {
                 console.warn(`Theme not found or invalid theme config for session ${sessionId}`);
